@@ -51,9 +51,15 @@ class SpaceController extends Controller
         ->where('space_id', $request->space_id)
         ->where('deleted_at', null)
         ->get();
-        $taskCount = $tasks->count();
+        $taskCountAll = $tasks->count();
+        $taskCountUser = $tasks->where('user_id', Auth::user()->id)->count();
         $spaceName = Space::find($request->space_id);
-        return response()->json(['tasks' => $tasks, 'taskCount' => $taskCount, 'spaceName' => $spaceName]);
+        return response()->json([
+            'tasks' => $tasks, 
+            'taskCountAll' => $taskCountAll, 
+            'taskCountUser' => $taskCountUser, 
+            'spaceName' => $spaceName
+        ]);
     }
     public function delete($id){
         $space = Space::withTrashed()->find($id);

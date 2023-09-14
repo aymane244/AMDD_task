@@ -34,8 +34,8 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-md-5 rounded shadow bg-white mb-3 p-3 me-lg-4">
+    <div class="row justify-content-center my-5">
+        <div class="col-md-5 rounded shadow bg-white p-3 me-lg-4">
             <h5 class="text-center">Total Membres : {{ $all_users }}</h5>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex">
@@ -74,7 +74,7 @@
             @endforeach
         </div>
     </div>
-    <div>
+    <div class="my-5">
         <canvas id="myChart"></canvas>
     </div>
     @foreach ($spaces as $space)

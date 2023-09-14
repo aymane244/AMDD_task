@@ -52,8 +52,10 @@
                     let admin = {{ Auth::user()->is_admin }};
                     let user_auth = {{ Auth::user()->id }};
                     if(response.tasks.length > 0){
+                        console.log(response);
                         spacesHtml += "<u><h5 class='mt-3'>"+ response.spaceName.space_name +"</h5></u>";
-                        spacesHtml += "<h4 class='text-center mt-3'>Total tâches: " + response.taskCount + "</h4>";
+                        spacesHtml += "<h5 class='mt-3 d-flex'><span class='me-1'>Description:</span>"+ response.spaceName.description +" </h5>";
+                        spacesHtml += "<h4 class='text-center mt-3'>Total tâches: " + (admin === 1 ? response.taskCountAll : response.taskCountUser) + "</h4>";
                         $.each(response.tasks, function(key, task){
                             if(admin === 1){
                                 let userName = task.user ? task.user.first_name + ' ' + task.user.last_name : 'N/A';

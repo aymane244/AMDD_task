@@ -54,14 +54,14 @@
                             @endif
                         </ul>
                     @else
-                        <ul class="navbar-nav mx-auto align-items-center">
+                        <ul class="navbar-nav mx-auto">
                             @if(Auth::user()->is_admin === 1)
-                                <li class="nav-item ms-3">
+                                <li class="nav-item ms-lg-3">
                                     <i class="fa-solid fa-gauge"></i>
                                     <a href="{{ route('home') }}" class="text-decoration-none text-dark">Dashboard</a>
                                 </li>
                             @endif
-                            <li class="nav-item mx-3">
+                            <li class="nav-item mx-lg-3">
                                 <i class="fa-solid fa-list-check"></i>
                                 <a href="{{ route('space') }}" class="text-decoration-none text-dark">Mes espaces</a>
                             </li>
@@ -70,7 +70,7 @@
                                 <a href="{{ route('meetings') }}" class="text-decoration-none text-dark">Réunions</a>
                             </li>
                             @if(Auth::user()->is_admin === 1)
-                                <li class="nav-item ms-3">
+                                <li class="nav-item ms-lg-3">
                                     <div class="d-flex align-items-center">
                                         <i class="fa-solid fa-file-zipper"></i>
                                         <a href="{{ route('show_archives') }}" class="dropdown-item ms-1">Archives</a>
@@ -80,7 +80,7 @@
                         </ul>
                         <ul class="navbar-nav ms-auto">
                             @if(Auth::user()->is_admin === 1)
-                                <li class="nav-item me-3">
+                                <li class="nav-item me-lg-3">
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_space">Créer un espace</button>
                                 </li>
                             @endif
